@@ -1,10 +1,10 @@
-import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <h1 className="text-3xl font-bold text-center p-8">Please Login</h1>
+          
+            <h1 className="text-3xl font-bold text-center p-8">Please Register</h1>
             <div className="hero min-h-screen bg-base-200">
 
                 <div className="hero-content ">
@@ -28,10 +28,10 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
-                       
+                        <p className="p-3">Already have an account <Link className="text-blue-500 font-bold" to="/login">Login</Link></p>
                     </div>
                 </div>
             </div>
