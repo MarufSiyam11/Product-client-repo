@@ -9,6 +9,7 @@ function App() {
   const products = useLoaderData();
   return (
     <>
+ 
 
       <h1 className='text-6xl text-center'>Total Products : {products.length}</h1>
   {

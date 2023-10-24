@@ -30,7 +30,7 @@ fetch('http://localhost:5000/product', {
         if(data.insertedId) {
             Swal.fire({
                 title: 'success',
-                text: 'Coffee Added Successfully',
+                text: 'Product Added Successfully',
                 icon: 'success',
                 confirmButtonText: 'Cool'
             })
@@ -105,7 +105,7 @@ fetch('http://localhost:5000/product', {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="reating" placeholder="Reating" className="input input-bordered w-full" />
+                                <input type="text" name="reating" placeholder=" Give Reating out of 10" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

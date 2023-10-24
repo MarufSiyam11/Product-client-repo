@@ -8,21 +8,34 @@ import {
 } from "react-router-dom";
 import AddProduct from './components/AddProduct.jsx';
 import UpdateProduct from './components/UpdateProduct.jsx';
+import Login from './components/Login.jsx';
+import Root from './Root.jsx';
 
 const router = createBrowserRouter([
+
+  {
+    path: '/',
+    element: <Root />,
+    children: [
   {
     path: "/",
     element: <App></App>,
     loader: () => fetch('http://localhost:5000/product')
   },
   {
-    path: "addProduct",
+    path: "/addProduct",
     element: <AddProduct></AddProduct>
   },
   {
-    path: "updateProduct",
+    path: "/updateProduct",
     element: <UpdateProduct></UpdateProduct>
+  },
+  {
+    path: "/login",
+    element: <Login></Login>
   }
+]
+},
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
