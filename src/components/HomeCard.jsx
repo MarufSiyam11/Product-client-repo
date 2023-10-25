@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const HomeCard = ({ data }) => {
     const {category, image} = data;
@@ -8,7 +9,7 @@ const HomeCard = ({ data }) => {
           <h2 className="text-5xl text-white font-bold text-center">{category}</h2>
           <p></p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Details</button>
+            <Link to='/app'><button className="btn btn-primary">Details</button></Link>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import Root from './Root.jsx';
 import Register from './components/Register.jsx';
 import AuthProvider from './components/providers/AuthProvider.jsx';
 import Home from './components/Home.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/app",
-        element: <App></App>,
+        element: <PrivateRoute><App></App></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product')
       },
       {
