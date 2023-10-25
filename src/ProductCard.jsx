@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, products, setProducts }) => {
   const { _id, name, brand, category, price, description, photo, reating } = product;
 
   const handleDelete = _id => {
@@ -29,6 +29,8 @@ const ProductCard = ({ product }) => {
                 'Your Product has been deleted.',
                 'success'
               )
+              const remaining = products.filter(prod => prod._id !== _id);
+              setProducts(remaining);
             }
           })
       }

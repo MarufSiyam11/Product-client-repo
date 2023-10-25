@@ -11,6 +11,8 @@ import UpdateProduct from './components/UpdateProduct.jsx';
 import Login from './components/Login.jsx';
 import Root from './Root.jsx';
 import Register from './components/Register.jsx';
+import AuthProvider from './components/providers/AuthProvider.jsx';
+import Home from './components/Home.jsx';
 
 const router = createBrowserRouter([
 
@@ -18,34 +20,41 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     children: [
-  {
-    path: "/",
-    element: <App></App>,
-    loader: () => fetch('http://localhost:5000/product')
+      {
+        path: "/",
+        element: <Home></Home>,
+    loader:() => fetch('data.json')    
+      },
+      {
+        path: "/app",
+        element: <App></App>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
+      {
+        path: "/addProduct",
+        element: <AddProduct></AddProduct>
+      },
+      {
+        path: "/updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+      },
+
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      }
+    ]
   },
-  {
-    path: "/addProduct",
-    element: <AddProduct></AddProduct>
-  },
-  {
-    path: "/updateProduct/:id",
-    element: <UpdateProduct></UpdateProduct>,
-    loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
-  },
- 
-  {
-    path: "/login",
-    element: <Login></Login>
-  },
-  {
-    path: "/register",
-    element: <Register></Register>
-  }
-]
-},
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

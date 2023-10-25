@@ -2,11 +2,14 @@
 import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import ProductCard from './ProductCard';
+import { useState } from 'react';
 
 function App() {
 
 
-  const products = useLoaderData();
+  const loadedProducts = useLoaderData();
+
+const [products, setProducts] = useState(loadedProducts);
   return (
     <div>
  
@@ -17,6 +20,9 @@ function App() {
     products.map(product => <ProductCard
     key={product._id}
     product={product}
+    products={products}
+    setProducts={setProducts}
+
     >
 
     </ProductCard>)

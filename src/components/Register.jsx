@@ -1,6 +1,32 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./providers/AuthProvider";
 
 const Register = () => {
+
+    const {creatUser} = useContext(AuthContext);
+    const handleRegister =e =>{
+        e.preventDefault();
+        console.log(e.currentTarget);
+        const form =new FormData(e.currentTarget);
+        
+
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(name, photo, email, password)
+        // create user
+        creatUser(email, password)
+    .then(result =>{
+        console.log(result.user);
+    })
+    .catch(error =>{
+        console.error(error);
+    })
+   
+    }
+    
     return (
         <div>
           
@@ -11,7 +37,20 @@ const Register = () => {
 
                     <div className="card flex-shrink-0  w-full max-w-sm shadow-2xl bg-base-100">
 
-                        <form  className="card-body">
+                        <form onSubmit={handleRegister}  className="card-body">
+                          
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+                                <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
