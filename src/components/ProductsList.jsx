@@ -2,11 +2,10 @@ import apple from "../assets/apple-products.jpg"
 import oneplud from "../assets/oneplus-11.jpg"
 import samsung from "../assets/Samsung-products.png"
 import sony from "../assets/sony-product1.jpg"
-import Slider from "./Slider";
 const ProductsList = () => {
     return (
         <div className="pt-10 pb-10">
-            <Slider></Slider>
+            
             <h1 className="text-center text-5xl font-bold p-10">Our New Products</h1>
             <div className="grid grid-cols-4  w-full ">
                 <div className="p-2">

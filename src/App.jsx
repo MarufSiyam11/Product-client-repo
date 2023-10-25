@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import ProductCard from './ProductCard';
 import { useState } from 'react';
+import Slider from './components/Slider';
 
 function App() {
 
@@ -12,9 +13,9 @@ function App() {
 const [products, setProducts] = useState(loadedProducts);
   return (
     <div>
- 
+ <Slider></Slider>
 
-      <h1 className='text-6xl text-center'>Total Products : {products.length}</h1>
+      <h1 className='text-6xl text-center p-10'>Total Products : {products.length}</h1>
       <div className="grid  md:grid-cols-2">
   {
     products.map(product => <ProductCard
